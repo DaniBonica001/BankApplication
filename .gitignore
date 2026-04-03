@@ -1,0 +1,33 @@
+# Java / Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+*.class
+*.log
+
+# IDE
+/.idea/
+*.iml
+/.project
+/.classpath
+/.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node / general
+node_modules/
+
+# Env
+.env
+.env.*
+
+# VS Code
+.vscode/
+
+# Docker
+*.pid
+
+.specify
+/specs
+.github

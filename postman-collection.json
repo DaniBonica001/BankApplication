@@ -1,0 +1,227 @@
+{
+  "info": {
+    "name": "BankApplication API Collection",
+    "description": "Postman collection for account and client microservices.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "account_base_url",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "client_base_url",
+      "value": "http://localhost:8001"
+    }
+  ],
+  "item": [
+    {
+      "name": "account-service",
+      "item": [
+        {
+          "name": "AccountController",
+          "item": [
+            {
+              "name": "Get all accounts",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{account_base_url}}/api/accounts"
+              }
+            },
+            {
+              "name": "Get account by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{account_base_url}}/api/accounts/1"
+              }
+            },
+            {
+              "name": "Create account",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"number\": \"1234567890\",\n  \"type\": \"AHORRO\",\n  \"initialAmount\": 1000.0,\n  \"isActive\": true,\n  \"clientId\": 1\n}"
+                },
+                "url": "{{account_base_url}}/api/accounts"
+              }
+            },
+            {
+              "name": "Update account (PUT)",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"number\": \"1234567890\",\n  \"type\": \"AHORRO\",\n  \"initialAmount\": 1500.0,\n  \"isActive\": true,\n  \"clientId\": 1\n}"
+                },
+                "url": "{{account_base_url}}/api/accounts/1"
+              }
+            },
+            {
+              "name": "Partial update account (PATCH)",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isActive\": false\n}"
+                },
+                "url": "{{account_base_url}}/api/accounts/1"
+              }
+            },
+            {
+              "name": "Delete account",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{account_base_url}}/api/accounts/1"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TransactionController",
+          "item": [
+            {
+              "name": "Get all transactions",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{account_base_url}}/api/transactions"
+              }
+            },
+            {
+              "name": "Get transaction by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{account_base_url}}/api/transactions/1"
+              }
+            },
+            {
+              "name": "Create transaction",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date\": \"2026-04-02T10:00:00\",\n  \"type\": \"DEPOSITO\",\n  \"amount\": 200.0,\n  \"accountId\": 1\n}"
+                },
+                "url": "{{account_base_url}}/api/transactions"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "client-service",
+      "item": [
+        {
+          "name": "ClientController",
+          "item": [
+            {
+              "name": "Get all clients",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{client_base_url}}/api/clients"
+              }
+            },
+            {
+              "name": "Get client by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{client_base_url}}/api/clients/1"
+              }
+            },
+            {
+              "name": "Create client",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dni\": \"1234567890\",\n  \"name\": \"John Doe\",\n  \"password\": \"secret\",\n  \"gender\": \"M\",\n  \"age\": 30,\n  \"address\": \"123 Main St\",\n  \"phone\": \"555-1234\",\n  \"isActive\": true\n}"
+                },
+                "url": "{{client_base_url}}/api/clients"
+              }
+            },
+            {
+              "name": "Update client (PUT)",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dni\": \"1234567890\",\n  \"name\": \"John Doe Updated\",\n  \"password\": \"secret\",\n  \"gender\": \"M\",\n  \"age\": 31,\n  \"address\": \"456 Main St\",\n  \"phone\": \"555-5678\",\n  \"isActive\": true\n}"
+                },
+                "url": "{{client_base_url}}/api/clients/1"
+              }
+            },
+            {
+              "name": "Partial update client (PATCH)",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isActive\": false\n}"
+                },
+                "url": "{{client_base_url}}/api/clients/1"
+              }
+            },
+            {
+              "name": "Delete client",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": "{{client_base_url}}/api/clients/1"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
