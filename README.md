@@ -22,7 +22,7 @@ Both services follow the BankApplication Constitution: Java 17, Spring Boot 2.4.
 
 ## Tech Stack
 
-- Java **17**
+- Java **11**
 - Spring Boot **2.4.2** (Web, Data JPA, Validation)
 - PostgreSQL (runtime DBs for `account` and `client`)
 - H2 (in-memory DB for tests)
@@ -43,14 +43,6 @@ client/
   src/test/java/com/devsu/hackerearth/backend/client/...
   pom.xml
 
-specs/001-account-client-transactions-api/
-  spec.md        # Feature specification (user stories, requirements)
-  plan.md        # Implementation plan
-  data-model.md  # Domain model
-  research.md    # Design research
-  quickstart.md  # Detailed run instructions
-  contracts/     # HTTP + Kafka contracts
-  tasks.md       # Implementation task list (phased)
 ```
 
 ## Prerequisites
@@ -227,12 +219,4 @@ Notable tests include:
 - `InsufficientFundsTests` and `InsufficientFundsIntegrationTests` – ensure overdrafts are rejected and balances remain unchanged.
 - `ReportIntegrationTests` and `ReportErrorTests` – verify client report contents and error handling for bad input.
 
-## Further Documentation
 
-For more detailed design and implementation notes, see:
-
-- [specs/001-account-client-transactions-api/spec.md](specs/001-account-client-transactions-api/spec.md)
-- [specs/001-account-client-transactions-api/plan.md](specs/001-account-client-transactions-api/plan.md)
-- [specs/001-account-client-transactions-api/data-model.md](specs/001-account-client-transactions-api/data-model.md)
-- [specs/001-account-client-transactions-api/contracts/http-apis.md](specs/001-account-client-transactions-api/contracts/http-apis.md)
-- [specs/001-account-client-transactions-api/quickstart.md](specs/001-account-client-transactions-api/quickstart.md)
